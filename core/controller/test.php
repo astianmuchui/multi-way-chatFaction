@@ -1,12 +1,12 @@
 <?php
 
 // Training mode. Ignore this damn file
-$DangerWords = array("brad","d","tr","jill");
+$DangerWords = array("brad","ver","trav","sy");
 $c = 0;
 
 $message = 'brad traversy';
  foreach ($DangerWords as $Dangerword):
-    $trial = stripos($message,$Dangerword);
+    $trial = stristr($message,$Dangerword);
     
     if($trial != true){
         $c++;

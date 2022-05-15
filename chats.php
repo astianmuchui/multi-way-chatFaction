@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./UI/css/chats.css">
     <title>Start chat</title>
-   
+
 </head>
 <body>
     <header>
@@ -27,27 +27,25 @@
             
              <form action="">
                  <input type="text" onkeyup="search_users(this.value)" name="" id="" placeholder="Search users">
-          
+                 <div class="users-container">
+            <div class="bar">
+                <p>Available users : </p>
+            </div>
+                  <?php 
+                    // require "./core/engine/class.engine.php";
+                    // $j = new user;
+                    // $j->fetch_users();
+                  ?>          
+        </div>
+
              </form>   
         </div>
 
-        <div class="users-container">
-            <!-- <div class="bar">
-                <p>Available users : </p>
-            </div> -->
-                            
-            <!-- <div class="card">
-                <p>Jessica carter</p>
-                                <a href="">start chat</a>
-
-            </div>                         -->
-        </div>
-
+        
     </main>
 
 
-
- <script>
+    <script>
         function search_users(str){
             if(str==""){
                 document.querySelector(".users-container").innerHTML =  "";
@@ -67,5 +65,5 @@
             }
         }
     </script>
-</body>
-</html>
+
+</body></html>

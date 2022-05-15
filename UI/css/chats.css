@@ -71,8 +71,9 @@
         padding-top: 50px;
     }
     .form-container{
-        width: 50vw;
-        height: 80px;
+    
+        width: 30vw;
+        height: 70vh;
         background-color: transparent;
         border-radius: 50px;
         display: flex;
@@ -81,12 +82,17 @@
         align-content: center;
         justify-content: center;
         justify-items: center;
+        /* overflow-y: ; */
     }
     .form-container form{
-        display: inline-flex;
+        display: flex;
+        flex-direction: column;
 
     }
     .form-container form input{
+        margin-top: 10px;
+        position: sticky;
+        top: 10px;
         width: 40vw;
         border: 2px solid #ffffff;
         background-color: #ffffff;

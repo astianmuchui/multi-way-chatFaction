@@ -95,6 +95,24 @@
             print $fin;
          }         
       }
+      public function fetch_users(){
+         self::establish();
+         $stmt = $this->conn->prepare('SELECT * FROM users');
+         $stmt->execute();
+         $users = $stmt->fetchAll();
+         foreach($users as $user){
+            $buffer = hex2bin($user->unm);
+            $readable = openssl_decrypt($buffer,"AES-128-CTR",29366464,0,'1234567891011121');
+            $div = '
+                     <br>
+                        <div class="card">
+                           <p>'.$readable.'</p>
+                           <a href="">start chat</a>
+                        </div>                        
+                     ';
+                     print $div;
+         }
+      }
    } 
    class search_engine extends server{
       public function get_result($str){
@@ -109,22 +127,28 @@
                foreach($rows as $row){
                   $buffer = hex2bin($row->unm);
                   $readable = openssl_decrypt($buffer,"AES-128-CTR",29366464,0,'1234567891011121');
-                  if(stripos($readable,$this->db_sr_str)){
-                  $div = '
-                     <div class="card">
-                        <p>'.$readable.'</p>
-                        <a href="">start chat</a>
-                     </div>                        
+                  if(stristr($readable,$this->db_sr_str)){
+                     $div = '
+                     <br>
+                        <div class="card">
+                           <p>'.$readable.'</p>
+                           <a href="">start chat</a>
+                        </div>                        
                      ';
                      print $div;
                    }else{
-                     $div = "No match found";
-                     print $div;
+  
                }
             }
             }else{
-            // print"Nothing";
+
          }
       }
    }
+class chatfaction extends SERVER{
+   const DEFAULT_CONCAT_STRING = "faction";    
+   protected function construct(){
+      
+   }
+}
 ?>
