@@ -1,4 +1,8 @@
-
+<?php
+    require_once "./core/engine/class.engine.php";
+    // Initialize object
+    $obj = new user;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="./chats.php" class="btn">Start chat</a></li>
+                <li><a href="./chats.php" class="btn">New group</a></li>
                 
                 <li><a href="./logout.php?action=logout" class="btn">Logout</a></li>
                 
@@ -24,8 +28,8 @@
     </header>
     <main>
         <div class="sidebar">
-            <img src="./assets/img/images-removebg-preview.png" alt="" width="150" height="150">
-            <h2>Seb Astian</h2>
+            <img src="./UI/img/images-removebg-preview.png" alt="" width="150" height="150">
+            <h2><?php $obj->show_profile(); ?></h2>
             
         </div>
         <h2 class="h-title">My Chats</h2>
